@@ -1,7 +1,7 @@
 /* lab5.c 
- * My Name is
- * My User ID is
- * My GitHub ID is
+ * Zade Hyatt
+ * C18769391
+ * zadehyatt
  * Lab5: Binary Search Trees
  * ECE 2230, Fall 2025
  *
@@ -27,6 +27,10 @@
  *   -e run the equilibrium driver
  *
  */
+// I added these defines for testing in a different environment on my computer
+#define _POSIX_C_SOURCE 200809L
+#define _XOPEN_SOURCE 700
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <assert.h>
@@ -36,7 +40,7 @@
 #include <time.h>
 #include <unistd.h>
 
-#include "tree.h"   // change this to match the name of your header file
+#include "tree.h"
 
 /* constants used with Global variables */
 
@@ -106,7 +110,7 @@ int main(int argc, char **argv)
     }
     if (UnitNumber == 3)
     {
-	// example deletion with many children
+	
 	const int ins[] = {200,100,50,150,25,75,125,175,65,85,135,80,130,140,78,82};
 	const int del[] = {100,85,125}; 
         unitDriver(ins, sizeof ins / sizeof(int),

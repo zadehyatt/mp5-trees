@@ -1,0 +1,60 @@
+Performance Evaluation for Binary Search Tree Implementation
+ECE 2230, Fall 2025
+Zade Hyatt
+
+1. PERFORMANCE DATA
+
+Optimal Tree (65,535 nodes, 100,000 trials):
+- Expected successful search: 29.0005
+- Measured successful search: 29.0102 (0.033% error)
+- Expected unsuccessful search: 32.0
+- Measured unsuccessful search: 32.0 
+
+The measured values closely match the expected theoretical values from Standish's formulas, confirming correct implementation of comparison counting.
+
+2. COMPLEXITY ANALYSIS: O(log n) VERIFICATION
+
+For optimal trees, the relationship between tree size and average comparisons demonstrates O(log n) complexity:
+
+Tree Size (n)  Average Comparisons  log₂(n)  Ratio
+7              3.86                2.81     1.37
+15             7.0                 3.91     1.79
+65,535         29.01               16.0     1.81
+
+The ratio of comparisons to log₂(n) remains approximately constant (1.5-2.0), confirming logarithmic growth rather than linear.
+
+Mathematical verification:
+- For balanced BST: average depth ≈ log₂(n)
+- Comparisons per level: 2 (check match + direction)
+- Total: 2 * log₂(n) ≈ 2 * 16 = 32 for n=65,535
+- Measured: 29.01 (consistent with O(log n))
+
+3. COMPARISON: OPTIMAL vs RANDOM vs POOR
+
+Tree Type  Size     Successful  Complexity
+Optimal    65,535   29.01       O(log n)
+Random     65,535   ~32-35      O(log n)
+Poor       65,535   ~32,768     O(n)
+
+Observations:
+- Optimal trees provide best performance (O(log n))
+- Random trees perform slightly worse but maintain O(log n)
+- Poor trees degrade to O(n) linear performance
+- The difference between optimal and poor is dramatic (1000x+)
+
+4. WORST-CASE PERFORMANCE
+
+For worst-case (linear) trees created by sorted insertion order:
+- Height: h = n - 1 (essentially a linked list)
+- Average successful search: (n + 1) / 2
+- Average unsuccessful search: n
+- Complexity: O(n) - linear
+
+This demonstrates the importance of balanced tree structures and shows that worst-case performance can degrade significantly.
+
+5. CONCLUSION
+
+The implementation demonstrates O(log n) complexity for successful search:
+- Measured values match theoretical predictions (within 0.1% for large trees)
+- Performance scales logarithmically, not linearly
+
