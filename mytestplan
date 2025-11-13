@@ -2,7 +2,7 @@ Test Plan for Binary Search Tree Implementation
 ECE 2230, Fall 2025
 Zade Hyatt
 
-1. IMPLEMENTATION DETAILS
+1. Details
 
 The BST module consists of tree.h (header), tree.c (implementation), and lab5.c (test drivers).
 
@@ -14,7 +14,7 @@ Key features:
 - Comparison counting follows Standish's definitions (one comparison to check match, one additional for direction if not found)
 - Removal handles three cases: no children, one child, two children (using inorder successor)
 
-2. TEST SCRIPT
+2. Test Script
 
 make clean
 make
@@ -43,7 +43,7 @@ make
 valgrind ./lab5 -r -w 4 -t 10
 valgrind ./lab5 -e -w 2 -t 10
 
-3. TEST RESULTS
+3. Test Results
 
 Unit Driver 0: PASSED - Inserted 14 keys, removed 7 keys (leaves, one child, two children). All operations correct.
 
@@ -63,13 +63,13 @@ Memory Leak Check: PASSED - valgrind shows no leaks, all heap blocks freed.
 
 Equilibrium Driver: PASSED - Random insertions/deletions work correctly, tree remains valid.
 
-4. BOUNDARY CONDITIONS
+4. Boundary Conditions
 
 - Empty tree: search/remove return NULL, size=0
 - Single node: insert creates root, remove empties tree
 - Duplicate keys: insert replaces data, returns 0
 - All removal cases: no children, one child, two children all work correctly
 
-5. CONCLUSION
+5. Conclusion
 
 All test drivers pass. 

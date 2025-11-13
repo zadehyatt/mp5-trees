@@ -1,8 +1,8 @@
-Performance Evaluation for Binary Search Tree Implementation
+Performacne for BST
 ECE 2230, Fall 2025
 Zade Hyatt
 
-1. PERFORMANCE DATA
+1. Performance
 
 Optimal Tree (65,535 nodes, 100,000 trials):
 - Expected successful search: 29.0005
@@ -12,7 +12,7 @@ Optimal Tree (65,535 nodes, 100,000 trials):
 
 The measured values closely match the expected theoretical values from Standish's formulas, confirming correct implementation of comparison counting.
 
-2. COMPLEXITY ANALYSIS: O(log n) VERIFICATION
+2. Copmlexity 
 
 For optimal trees, the relationship between tree size and average comparisons demonstrates O(log n) complexity:
 
@@ -23,13 +23,13 @@ Tree Size (n)  Average Comparisons  log₂(n)  Ratio
 
 The ratio of comparisons to log₂(n) remains approximately constant (1.5-2.0), confirming logarithmic growth rather than linear.
 
-Mathematical verification:
+Math
 - For balanced BST: average depth ≈ log₂(n)
 - Comparisons per level: 2 (check match + direction)
 - Total: 2 * log₂(n) ≈ 2 * 16 = 32 for n=65,535
 - Measured: 29.01 (consistent with O(log n))
 
-3. COMPARISON: OPTIMAL vs RANDOM vs POOR
+3. Comparison
 
 Tree Type  Size     Successful  Complexity
 Optimal    65,535   29.01       O(log n)
@@ -42,7 +42,7 @@ Observations:
 - Poor trees degrade to O(n) linear performance
 - The difference between optimal and poor is dramatic (1000x+)
 
-4. WORST-CASE PERFORMANCE
+4. Worst Case
 
 For worst-case (linear) trees created by sorted insertion order:
 - Height: h = n - 1 (essentially a linked list)
@@ -52,7 +52,7 @@ For worst-case (linear) trees created by sorted insertion order:
 
 This demonstrates the importance of balanced tree structures and shows that worst-case performance can degrade significantly.
 
-5. CONCLUSION
+5. Conclusion
 
 The implementation demonstrates O(log n) complexity for successful search:
 - Measured values match theoretical predictions (within 0.1% for large trees)

@@ -5,28 +5,17 @@ CC = gcc
 CFLAGS = -Wall -Wextra -g -std=c11
 LDFLAGS = -lm
 
-# Target executable
-TARGET = lab5
+all: lab5
 
-# Source files
-SOURCES = lab5.c tree.c
-OBJECTS = $(SOURCES:.c=.o)
+lab5: lab5.o tree.o
+	$(CC) $(CFLAGS) -o lab5 lab5.o tree.o $(LDFLAGS)
 
-# Default target
-all: $(TARGET)
+lab5.o: lab5.c tree.h
+	$(CC) $(CFLAGS) -c lab5.c -o lab5.o
 
-# Build the executable
-$(TARGET): $(OBJECTS)
-	$(CC) $(CFLAGS) -o $(TARGET) $(OBJECTS) $(LDFLAGS)
+tree.o: tree.c tree.h
+	$(CC) $(CFLAGS) -c tree.c -o tree.o
 
-# Compile source files to object files
-%.o: %.c tree.h
-	$(CC) $(CFLAGS) -c $< -o $@
-
-# Clean build artifacts
 clean:
-	rm -f $(OBJECTS) $(TARGET)
-
-# Phony targets
-.PHONY: all clean
+	rm -f lab5.o tree.o lab5
 
